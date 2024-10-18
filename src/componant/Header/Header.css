@@ -1,0 +1,58 @@
+.header{
+    height: 34vw;
+    background: url('/header_img.png') no-repeat;
+    position: relative;
+    background-size: contain;
+}
+.header-contacts{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 10%;
+    left: 6vw ;
+    animation: fadeIn 3s;
+}
+.header-contacts h2{
+    font-size: max(4.5vw,22px);
+    font-weight: 500;
+    color: white;
+}
+.header-contacts p{
+    color: white;
+    font-size: 1vw;
+}
+.header-contacts a{
+    border: none;
+    color: #747474;
+    font-weight: 500;
+    padding: 1vw 2.3vw;
+    background-color: white;
+    font-size: max(1vw,13px);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+@media(max-width:1050px){
+    .header{
+        height:38vw
+    }
+    .header-contacts{
+        max-width: 45%;
+    }
+}
+@media(max-width:750px){
+    
+    .header-contacts{
+        max-width: 65%;
+    }
+    .header-contacts p{
+        display: none;
+    }
+    .header-contacts button{
+        padding: 2vw 4vw;
+    }
+
+}
