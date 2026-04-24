@@ -3,7 +3,7 @@
 
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Navbar from "./componant/navbar";
+import Navbar from "./componant/Navbar";
 import Placeorder from "./pages/placeorder/Placeorder";
 import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
