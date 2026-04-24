@@ -9,26 +9,26 @@ import { menu_list } from "../../assets/assets";
 const ExplorePage = ({category, setCategory}) => {
   return (
     <div className="explore-Menu" id="explore-Menu">
-      <h1>Explore Our menu</h1>
+      <h1>Explore Our Menu</h1>
       <p className="explore-Menu-text">
-        choose from diverse menus featuring adelectable Array of dished crafted
-        with the finest ingredients and culinary expertise. Our Mission is to
+        Choose from a diverse menu featuring a delectable array of dishes crafted
+        with the finest ingredients and culinary expertise. Our mission is to
         satisfy your cravings and elevate your dining experience.
       </p>
       <div className="explore-Menu-list">
         {menu_list.map((data, index) => {
           return (
             <div
-            onClick={() => {  
-                setCategory(prev =>   
-                    prev === data.menu_name ? "All" : data.menu_name  
-                );  
-            }}
               key={index}
+              onClick={() => {  
+                setCategory(prev =>   
+                  prev === data.menu_name ? "All" : data.menu_name  
+                );  
+              }}
               className="explore-Menu-list-item"
             >
               <img
-                className={category === data.menu_name ? "Active" : ""}
+                className={category === data.menu_name ? "active" : ""}
                 src={data.menu_image}
                 alt={data.menu_name}
               />
@@ -37,6 +37,7 @@ const ExplorePage = ({category, setCategory}) => {
           );
         })}
       </div>
+      <hr className="explore-menu-hr" />
     </div>
   );
 };

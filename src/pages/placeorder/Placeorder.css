@@ -1,38 +1,215 @@
-.place-order{
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 50px;
-    margin-top: 100px;
+/* ══════════════════════════════
+   Checkout / Place Order Page
+══════════════════════════════ */
 
-}
-.place-order-left{
-    width: 100%;
-    max-width: max(30%,500px);
-}
-.place-order-left .title{
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 50px;
-
-}
-.place-order-left input{
-    margin-bottom: 15px;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #c5c5c5;
-    border-radius: 4px;
-    outline-color: tomato; 
-}
-.place-order-left .multi-fields{
-    display: flex;
-    gap:10px
-}
-.place-order-right{
-    width: 100%;
-    max-width: max(40%,500px);
+.place-order {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
-.place-order .cart-total button{
-    margin-top: 30px;
+/* ── LEFT COLUMN ── */
+.place-order-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.place-order-left .title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #ff6b35;
+  display: inline-block;
+}
+
+/* input groups with labels */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  letter-spacing: 0.3px;
+}
+
+.place-order-left input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: #fafafa;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  outline: none;
+}
+
+.place-order-left input:focus {
+  border-color: #ff6b35;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12);
+}
+
+.place-order-left input::placeholder {
+  color: #bbb;
+}
+
+.multi-fields {
+  display: flex;
+  gap: 14px;
+}
+
+.multi-fields .input-group {
+  flex: 1;
+}
+
+/* ── RIGHT COLUMN ── */
+.place-order-right {
+  width: 380px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+}
+
+.order-summary {
+  background: #fff;
+  border: 1.5px solid #f0f0f0;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.summary-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #ff6b35;
+  display: inline-block;
+}
+
+.summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: #444;
+}
+
+.summary-divider {
+  border: none;
+  border-top: 1.5px dashed #e0e0e0;
+  margin: 4px 0;
+}
+
+.total-row {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.free-tag {
+  color: #2ecc71;
+  font-weight: 600;
+  font-size: 13px;
+  background: #eafaf1;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* empty cart warning */
+.empty-cart-warning {
+  background: #fff8f3;
+  border: 1.5px solid #ffd6c2;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #c0392b;
+  margin-bottom: 16px;
+}
+
+/* Pay button */
+.pay-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #ff6b35 0%, #e64a19 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+  margin-bottom: 16px;
+}
+
+.pay-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.35);
+}
+
+.pay-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pay-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* secure badge */
+.secure-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #888;
+  font-size: 12px;
+}
+
+.secure-badge span {
+  font-size: 14px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .place-order {
+    flex-direction: column;
+  }
+
+  .place-order-right {
+    width: 100%;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 500px) {
+  .multi-fields {
+    flex-direction: column;
+    gap: 0;
+  }
 }

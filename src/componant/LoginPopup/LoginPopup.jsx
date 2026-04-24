@@ -1,13 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import { assets } from "../../assets/assets";
 import "./LoginPopup.css";
 import { useState } from "react";
 
 const LoginPopup = ({ setShowLogin }) => {
   const [currState, setCurrState] = useState("SignUp");
+
   return (
     <div className="login-popup">
       <form className="login-popup-container">
@@ -16,7 +14,7 @@ const LoginPopup = ({ setShowLogin }) => {
           <img
             onClick={() => setShowLogin(false)}
             src={assets.cross_icon}
-            alt=""
+            alt="Close"
           />
         </div>
         <div className="login-popup-inputs">
@@ -28,20 +26,22 @@ const LoginPopup = ({ setShowLogin }) => {
           <input type="email" placeholder="Your email" required />
           <input type="password" placeholder="Password" required />
         </div>
-        <button>{currState === "SignUp" ? "Create account" : "Login"}</button>
+        <button type="submit">
+          {currState === "SignUp" ? "Create account" : "Login"}
+        </button>
         <div className="login-popup-condition">
           <input type="checkbox" required />
-          <p>By coutinuing , iagree to the terms of use & privacy policy</p>
+          <p>By continuing, I agree to the terms of use &amp; privacy policy</p>
         </div>
-        {currState === "login" ? (
+        {currState === "Login" ? (
           <p>
             Create a new account{" "}
-            <span onClick={() => setCurrState("SignUp")}> click here</span>
+            <span onClick={() => setCurrState("SignUp")}>click here</span>
           </p>
         ) : (
           <p>
             Already have an account?{" "}
-            <span  onClick={() => setCurrState("Login")}>Login here</span>
+            <span onClick={() => setCurrState("Login")}>Login here</span>
           </p>
         )}
       </form>
